@@ -56,43 +56,51 @@ function toRoman(num) {
   result = ""
   while (num > 0) {
 
-    if (num >= 1000) {
-      result += numerals[1000]
-      num -= 1000
-    } else if (num >= 900) {
-      result += numerals[900]
-      num -= 900
-    } else if (num >= 500) {
-      result += numerals[500]
-      num -= 500
-    } else if (num >= 400) {
-      result += numerals[400]
-      num -= 400
-    } else if (num >= 100) {
-      result += numerals[100]
-      num -= 100
-    } else if (num >= 50) {
-      result += numerals[50]
-      num -= 50
-    } else if (num >= 40) {
-      result += numerals[40]
-      num -= 40
-    } else if (num >= 10) {
-      result += numerals[10]
-      num -= 10
-    } else if (num >= 9) {
-      result += numerals[9]
-      num -= 9
-    } else if (num >= 5) {
-      result += numerals[5]
-      num -= 5
-    } else if (num >= 4) {
-      result += numerals[4]
-      num -= 4
-    } else if (num >= 1) {
-      result += numerals[1]
-      num -= 1
+    for (key of Object.keys(numerals).reverse()) {
+      const romanDigit = Number(key)
+      if (num >= Number(key)) {
+        result += numerals[key]
+        num -= romanDigit
+      }
     }
+    
+    // if (num >= 1000) {
+    //   result += numerals[1000]
+    //   num -= 1000
+    // } else if (num >= 900) {
+    //   result += numerals[900]
+    //   num -= 900
+    // } else if (num >= 500) {
+    //   result += numerals[500]
+    //   num -= 500
+    // } else if (num >= 400) {
+    //   result += numerals[400]
+    //   num -= 400
+    // } else if (num >= 100) {
+    //   result += numerals[100]
+    //   num -= 100
+    // } else if (num >= 50) {
+    //   result += numerals[50]
+    //   num -= 50
+    // } else if (num >= 40) {
+    //   result += numerals[40]
+    //   num -= 40
+    // } else if (num >= 10) {
+    //   result += numerals[10]
+    //   num -= 10
+    // } else if (num >= 9) {
+    //   result += numerals[9]
+    //   num -= 9
+    // } else if (num >= 5) {
+    //   result += numerals[5]
+    //   num -= 5
+    // } else if (num >= 4) {
+    //   result += numerals[4]
+    //   num -= 4
+    // } else if (num >= 1) {
+    //   result += numerals[1]
+    //   num -= 1
+    // }
   }
   return result;
 }
